@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>¡Gracias por tu compra!</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .confirmacion {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .confirmacion h2 {
+      color: #28a745;
+    }
+    .volver {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background: #003b5c;
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmacion">
+    <h2>✅ Compra Completada</h2>
+    <p><strong>ID de transacción:</strong> <span id="id-trans">-</span></p>
+    <p><strong>Estado:</strong> <span id="estado-trans">-</span></p>
+    <a class="volver" href="index.html">Volver a comprar</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('id-trans').textContent = params.get('idTrans') || 'No disponible';
+    document.getElementById('estado-trans').textContent = params.get('estado') || 'Desconocido';
+
+    const localID = localStorage.getItem('transaccionCliente');
+    if (params.get('idTrans') !== localID) {
+      console.warn("⚠ ID no coincide con la transacción local.");
+    }
+  </script>
+</body>
+</html>
