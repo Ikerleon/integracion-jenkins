@@ -9,7 +9,7 @@ pipeline {
     environment {
         IMAGE_NAME = "tienda-payphone"
         CONTAINER_NAME = "tienda-payphone"
-        PORT = "8080"
+        PORT = "3007"
     }
 
     stages {

@@ -7,6 +7,6 @@ RUN npm install -g http-server
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3007
 
-CMD ["http-server", ".", "-p", "8080"]
+CMD ["http-server", ".", "-p", "3007"]
